@@ -1,4 +1,16 @@
-<h1>{{todos[0].title}}</h1>
-<p>
-    {{ todos | json  }}
-</p>
+
+<div class="container">
+    <h2>Yapılacaklar</h2>
+    <ul>
+        <li *ngFor="let todo of todos">
+            <div class="card-todo">
+                <div class="title" >
+                    <h4>{{todo.title}}</h4>
+                </div>
+                <div class="completed">
+                    <input type="checkbox" [checked]="[todo.completed]">
+                </div>     
+            </div>
+        </li>
+    </ul>
+</div>

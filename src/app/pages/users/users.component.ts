@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { TodosService } from 'src/app/services/todos.service';
+import { UsersService } from 'src/app/services/users.service';
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+	selector: 'app-users',
+	templateUrl: './users.component.html',
+	styleUrls: [ './users.component.scss' ]
 })
 export class UsersComponent implements OnInit {
+	constructor(private usersService: UsersService) {}
 
- users:any=[];
-  constructor(private http:HttpClient) { }
-
-  ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/users')
-    .subscribe(data =>this.users=data)
-  }
-
+	get users() {
+		return this.usersService.users;
+	}
+	ngOnInit(): void {
+		this.usersService.fetchUsers();
+	}
 }

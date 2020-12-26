@@ -1,0 +1,21 @@
+.container {
+    h2{
+        padding-left: 15px; 
+        margin-left:50px;
+    }
+	li {
+        padding: 15px;
+        list-style-type: none;
+	}
+	.card-todo {
+		display: flex;
+		border: 2px solid;
+        padding: 15px;
+         .title{
+            width: 100vh;  
+         }
+         .completed{
+             margin-top: 20px;
+         }
+	}
+}

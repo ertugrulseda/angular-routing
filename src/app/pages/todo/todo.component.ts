@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TodosService } from 'src/app/services/todos.service';
+import { UsersService } from 'src/app/services/users.service';
 
 type Todo = {
 	userId: number;
@@ -15,15 +16,17 @@ type Todo = {
 	styleUrls: [ './todo.component.scss' ]
 })
 export class TodoComponent implements OnInit {
-	todos: Todo[] = [];
+	constructor(private route: ActivatedRoute, private todoService: TodosService,private userService:UsersService) {}
 
-	constructor(private route: ActivatedRoute, private http: HttpClient) {}
+	get todos(){
+		return this.todoService.todos;
+	}
 
 	ngOnInit(): void {
 		this.route.paramMap.subscribe((params) => {
 			const  userId =Number(params.get('id'));
-			this.http.get('https://jsonplaceholder.typicode.com/users/'+userId+'/todos/')
-				.subscribe((data: Todo[]) => (this.todos = data));
+			this.todoService.fetchTodos(userId)
+			this.userService.fetchSelectedUsers(userId)
 		});
 	}
 }

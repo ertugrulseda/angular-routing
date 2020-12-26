@@ -1,7 +1,7 @@
 .toolbar{
     padding: 20px;
     background-color: slateblue;
-
+    
     a{
         text-decoration: none;
         color:snow;
@@ -10,6 +10,10 @@
         &:hover{
             color:yellow;
         }
+    }
 
+    span {
+        color: snow;
+        float: right;
     }
 }
