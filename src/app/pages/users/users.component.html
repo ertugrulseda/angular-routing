@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        <li *ngFor="let user of users">
+            <a [routerLink]="['/todo',user.id]">
+                {{user.name}}
+            </a>
+        </li>
+    </ul>
+</div>

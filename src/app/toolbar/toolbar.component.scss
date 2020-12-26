@@ -1,0 +1,15 @@
+.toolbar{
+    padding: 20px;
+    background-color: slateblue;
+
+    a{
+        text-decoration: none;
+        color:snow;
+        transition: 200ms;
+        margin: 5px;
+        &:hover{
+            color:yellow;
+        }
+
+    }
+}

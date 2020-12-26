@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "routingodev"
+  "defaultProject": "routingodev",
+  "cli": {
+    "analytics": false
+  }
 }
