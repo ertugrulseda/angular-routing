@@ -16,17 +16,14 @@ type Todo = {
 })
 export class TodoComponent implements OnInit {
 	todos: Todo[] = [];
-	filteredTodo: Todo[] = [];
 
 	constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
 	ngOnInit(): void {
-    let userId = -1;
 		this.route.paramMap.subscribe((params) => {
-			  userId =Number(params.get('id'));
-			this.http.get('https://jsonplaceholder.typicode.com/todos/')
+			const  userId =Number(params.get('id'));
+			this.http.get('https://jsonplaceholder.typicode.com/users/'+userId+'/todos/')
 				.subscribe((data: Todo[]) => (this.todos = data));
 		});
-		this.filteredTodo = this.todos.filter(item=>item.userId === userId);
 	}
 }
